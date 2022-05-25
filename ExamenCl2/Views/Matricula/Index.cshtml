@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ExamenCl2.Models.Horario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Consulta</h1>
+
+<div>
+<form asp-action="Consulta">
+<em>Desde</em><input type="date" name="f1" value=@ViewBag.f1/>
+<em>Hasta</em><input type="date" name="f2" value=@ViewBag.f2/>
+</form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idhorario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idcurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombrecurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechafin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vacantes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idhorario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idcurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombrecurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechafin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vacantes)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

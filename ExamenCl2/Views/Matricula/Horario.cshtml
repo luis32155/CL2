@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ExamenCl2.Models.Horario>
+
+@{
+    ViewData["Title"] = "Horario";
+}
+
+<h1>Horario</h1>
+@using(Html.BeginForm())
+{
+    <em>Ingrese Fecha</em>
+    @Html.TextBox("fecha1",1990,new{type="text",min=1990,max=@DateTime.Today.Year})
+    @Html.TextBox("fecha2",1990,new{type="text",min=1990,max=@DateTime.Today.Year})
+    <button>Consulta</button>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idhorario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idcurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombrecurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechafin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vacantes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idhorario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idcurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombrecurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechafin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vacantes)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
